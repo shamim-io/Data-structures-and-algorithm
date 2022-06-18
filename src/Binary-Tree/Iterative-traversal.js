@@ -1,3 +1,5 @@
+// Iterative solution for DFS
+
 class Node {
   constructor(val) {
     this.val = val;
