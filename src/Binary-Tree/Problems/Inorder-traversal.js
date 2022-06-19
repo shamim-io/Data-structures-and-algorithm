@@ -6,10 +6,9 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
-/**
- * @param {TreeNode} root
- * @return {number[]}
- */
+
+// RECURSIVE SOLUTION
+
 const result = [];
 var inorderTraversal = function (root) {
   let result = [];
@@ -21,6 +20,29 @@ var inorderTraversal = function (root) {
     Trav(root.left);
     result.push(root.val);
     Trav(root.right);
+  }
+
+  return result;
+};
+
+// ITERATIVE SOLUTION
+var inorderTraversal = function (root) {
+  if (root === null) return [];
+
+  let result = [];
+
+  let stack = [];
+
+  let current = root;
+
+  while (current || stack.length > 0) {
+    while (current) {
+      stack.push(current);
+      current = current.left;
+    }
+    current = stack.pop();
+    result.push(current.val);
+    current = current.right;
   }
 
   return result;
