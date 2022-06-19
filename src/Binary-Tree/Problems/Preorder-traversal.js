@@ -25,3 +25,22 @@ var preorderTraversal = function (root) {
   }
   return result;
 };
+
+// Recursive solution
+
+var preorderTraversal = function (root) {
+  if (root === null) return [];
+
+  let result = [];
+
+  traverse(root);
+
+  function traverse(root) {
+    if (!root) return;
+    result.push(root.val);
+    traverse(root.left);
+    traverse(root.right);
+  }
+
+  return result;
+};
